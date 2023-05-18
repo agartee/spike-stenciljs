@@ -30,6 +30,11 @@ Here we are adding the web component to a plain HTML file.
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
         <script type='module' src='https://agartee-stenciljs.azurewebsites.net/esm/spike.js'></script>
+        <style>
+            h1 {
+                text-decoration: underline;
+            }
+        </style>
     </head>
 
     <body>
