@@ -8,30 +8,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    - uses: actions/checkout@v3
+    steps:
 
-    - name: Set up Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Run build script
-      run: npm run build
+      - name: Install dependencies
+        run: npm ci
 
-    - name: List deployment contents
-      run: |
-        Write-Host ""
-        Write-Host "Build directory contents:" -ForegroundColor Blue
-        Get-ChildItem ./dist
+      - name: Run build script
+        run: npm run build
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
-      with:
-        name: app
-        path: ./dist
+      - name: List deployment contents
+        run: |
+          Write-Host ""
+          Write-Host "Build directory contents:" -ForegroundColor Blue
+          Get-ChildItem ./dist
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
