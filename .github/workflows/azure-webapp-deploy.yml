@@ -25,9 +25,9 @@ jobs:
 
       - name: List deployment contents
         run: |
-          Write-Host ""
-          Write-Host "Build directory contents:" -ForegroundColor Blue
-          Get-ChildItem ./dist
+          echo ""
+          echo "Build directory contents:"
+          ls ./dist
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
