@@ -24,12 +24,15 @@ export class MyComponent {
   @Prop() meta: Meta;
 
   private getText(): string {
-    return this.first + ' ' + this.last;
+    const name = this.first + ' ' + this.last;
+    return this.meta
+      ? name + ` and my favorite color is ${this.meta?.favoriteColor}`
+      : name;
   }
 
   render() {
     return <div>
-      Hello, World! I'm {this.getText()} and my favorite color is {this.meta?.favoriteColor}
+      Hello, World! I'm {this.getText()}
     </div>;
   }
 }
