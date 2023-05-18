@@ -11,12 +11,12 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() first: string;
+  @Prop() first: string = '';
 
   /**
    * The last name
    */
-  @Prop() last: string;
+  @Prop() last: string  = '';
 
   /**
    * The metadata
@@ -24,7 +24,8 @@ export class MyComponent {
   @Prop() meta: Meta;
 
   private getText(): string {
-    const name = this.first + ' ' + this.last;
+    const name = `${this.first} ${this.last}`.trim();
+
     return this.meta
       ? name + ` and my favorite color is ${this.meta?.favoriteColor}`
       : name;
@@ -32,7 +33,8 @@ export class MyComponent {
 
   render() {
     return <div>
-      Hello, World! I'm {this.getText()}
+      <h1>This is the web component</h1>
+      <span class="dynamic">My name is {this.getText()}</span>
     </div>;
   }
 }

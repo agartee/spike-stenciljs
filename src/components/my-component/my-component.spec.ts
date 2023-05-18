@@ -7,11 +7,13 @@ describe('my-component', () => {
       components: [MyComponent],
       html: '<my-component></my-component>',
     });
+
     expect(root).toEqualHtml(`
       <my-component>
         <mock:shadow-root>
           <div>
-            Hello, World! I'm
+            <h1>This is the web component</h1>
+            <span class="dynamic">My name is</span>
           </div>
         </mock:shadow-root>
       </my-component>
@@ -27,7 +29,8 @@ describe('my-component', () => {
       <my-component first="Adam" last="Gartee">
         <mock:shadow-root>
           <div>
-            Hello, World! I'm Adam Gartee
+            <h1>This is the web component</h1>
+            <span class="dynamic">My name is Adam Gartee</span>
           </div>
         </mock:shadow-root>
       </my-component>
