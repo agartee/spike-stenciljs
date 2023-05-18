@@ -15,9 +15,9 @@ describe('my-component', () => {
     await page.setContent('<my-component></my-component>');
 
     const component = await page.find('my-component');
-    const element = await page.find('my-component >>> div >>> .dynamic');
+    const element = await page.find('my-component >>> .dynamic');
 
-    expect(element.textContent).toEqual(`My name is`);
+    expect(element.textContent).toEqual(`My name is `);
 
     component.setProperty('first', 'James');
     await page.waitForChanges();
